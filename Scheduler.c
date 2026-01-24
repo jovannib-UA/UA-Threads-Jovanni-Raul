@@ -241,6 +241,8 @@ void k_exit(int code)
     gChildExitCode = code;
     gChildExited = 1;
 
+    //testing for purposes
+
 }
 
 /**************************************************************************
