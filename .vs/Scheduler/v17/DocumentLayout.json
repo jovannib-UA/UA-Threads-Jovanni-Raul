@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jwnew\\Dropbox\\Coding\\CYBV 489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9C3A6259-D35E-453A-9A17-62B44C793A76}|Scheduler.vcxproj|C:\\Users\\jwnew\\Dropbox\\Coding\\CYBV 489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\Scheduler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9C3A6259-D35E-453A-9A17-62B44C793A76}|Scheduler.vcxproj|solutionrelative:Scheduler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Scheduler.c",
+              "DocumentMoniker": "C:\\Users\\jwnew\\Dropbox\\Coding\\CYBV 489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\Scheduler.c",
+              "RelativeDocumentMoniker": "Scheduler.c",
+              "ToolTip": "C:\\Users\\jwnew\\Dropbox\\Coding\\CYBV 489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\Scheduler.c",
+              "RelativeToolTip": "Scheduler.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQBAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-16T01:40:22.594Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
