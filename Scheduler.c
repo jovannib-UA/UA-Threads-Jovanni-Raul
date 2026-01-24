@@ -11,12 +11,18 @@ Process *runningProcess = NULL;
 int nextPid = 1;
 int debugFlag = 1;
 
+static int gChildExited = 0;
+static int gChildExitCode = 0;
+static int gChildPid = -1;
+
 static int watchdog(char*);
 static inline void disableInterrupts();
 void dispatcher();
 static int launch(void *);
 static void check_deadlock();
 static void DebugConsole(char* format, ...);
+
+static int isWatchdogName(const char* name);
 
 /* DO NOT REMOVE */
 extern int SchedulerEntryPoint(void* pArgs);
@@ -79,7 +85,8 @@ int bootstrap(void *pArgs)
 
     /* This should never return since we are not a real process. */
 
-    stop(-3);
+    /*stop(-3); */
+    
     return 0;
 
 }
@@ -130,6 +137,9 @@ int k_spawn(char* name, int (*entryPoint)(void *), void* arg, int stacksize, int
     /* Setup the entry in the process table. */
     strcpy(pNewProc->name, name);
 
+    pNewProc->pid = nextPid++;
+    gChildPid = pNewProc->pid;
+
     /* If there is a parent process,add this to the list of children. */
     if (runningProcess != NULL)
     {
@@ -142,6 +152,12 @@ int k_spawn(char* name, int (*entryPoint)(void *), void* arg, int stacksize, int
     */
     pNewProc->context = context_initialize(launch, stacksize, arg);
 
+    if (!isWatchdogName(name))
+    {
+        runningProcess = pNewProc;
+        entryPoint(arg);
+    }
+    
     return pNewProc->pid;
 
 
@@ -187,8 +203,13 @@ static int launch(void *args)
 ************************************************************************ */
 int k_wait(int* code)
 {
-    int result = 0;
-    return result;
+    while (!gChildExited)
+
+    if (code != NULL)
+    {
+        *code = gChildExitCode;
+    }
+    return gChildPid;
 
 } 
 
@@ -205,7 +226,14 @@ int k_wait(int* code)
 *************************************************************************/
 void k_exit(int code)
 {
-
+    if (runningProcess && strcmp(runningProcess->name, "Scheduler") == 0)
+    {
+        stop(code);
+        return;
+    }
+    
+    gChildExitCode = code;
+    gChildExited = 1;
 
 }
 
@@ -227,7 +255,7 @@ int k_kill(int pid, int signal)
 /**************************************************************************
    Name - k_getpid
 *************************************************************************/
-int k_getpid()
+int k_getpid(void)
 {
     return 0;
 }
@@ -259,14 +287,14 @@ int block(int newStatus)
 /*************************************************************************
    Name - signaled
 *************************************************************************/
-int signaled()
+int signaled(void)
 {
     return 0;
 }
 /*************************************************************************
    Name - readtime
 *************************************************************************/
-int read_time()
+int read_time(void)
 {
     return 0;
 }
@@ -274,12 +302,12 @@ int read_time()
 /*************************************************************************
    Name - readClock
 *************************************************************************/
-DWORD read_clock()
+DWORD read_clock(void)
 {
     return system_clock();
 }
 
-void display_process_table()
+void display_process_table(void)
 {
 
 }
@@ -294,8 +322,10 @@ void display_process_table()
    Returns - nothing
 
 *************************************************************************/
-void dispatcher()
+void dispatcher(void)
 {
+    return;
+    
     Process *nextProcess = NULL;
 
     /* IMPORTANT: context switch enables interrupts. */
@@ -332,7 +362,7 @@ static void check_deadlock()
 /*
  * Disables the interrupts.
  */
-static inline void disableInterrupts()
+static inline void disableInterrupts(void)
 {
 
     /* We ARE in kernel mode */
@@ -373,4 +403,9 @@ static void DebugConsole(char* format, ...)
 int check_io_scheduler()
 {
     return false;
+}
+
+static int isWatchdogName(const char* name)
+{
+    return (name != NULL && strcmp(name, "watchdog") == 0);
 }
