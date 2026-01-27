@@ -85,9 +85,8 @@ int bootstrap(void* pArgs)
 
     /* This should never return since we are not a real process. */
 
-    /*stop(-3); */
-    dispatcher();
-    stop(1);
+    stop(-3);
+    //dispatcher();
     return 0;
 
 }
@@ -151,7 +150,17 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
     /* Initialize context for this process, but use launch function pointer for
      * the initial value of the process's program counter (PC)
     */
+    
     pNewProc->context = context_initialize(launch, stacksize, arg);
+
+    if (!isWatchdogName(name)) {
+        Process* saved = runningProcess;
+        runningProcess = pNewProc;
+
+        entryPoint(arg);
+        runningProcess = saved;
+    }
+
 
     return pNewProc->pid;
 
