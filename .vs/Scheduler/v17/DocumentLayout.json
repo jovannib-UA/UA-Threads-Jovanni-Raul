@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "Scheduler.c",
               "ToolTip": "C:\\Users\\jwnew\\Dropbox\\Coding\\CYBV 489\\Collab\\Scheduler.c",
               "RelativeToolTip": "Scheduler.c",
-              "ViewState": "AgIAAMgAAAAAAAAAAAAnwMsAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAAIcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-01-16T01:40:22.594Z",
               "IsPinned": true,
@@ -50,10 +50,11 @@
               "RelativeDocumentMoniker": "SchedulerTest00\\SchedulerTest00.c",
               "ToolTip": "C:\\Users\\jwnew\\Dropbox\\Coding\\CYBV 489\\Collab\\SchedulerTest00\\SchedulerTest00.c",
               "RelativeToolTip": "SchedulerTest00\\SchedulerTest00.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-01-24T17:25:55.423Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -63,9 +64,10 @@
               "RelativeDocumentMoniker": "Processes.h",
               "ToolTip": "C:\\Users\\jwnew\\Dropbox\\Coding\\CYBV 489\\Collab\\Processes.h",
               "RelativeToolTip": "Processes.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-27T04:45:39.533Z"
+              "WhenOpened": "2026-01-27T04:45:39.533Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

@@ -109,7 +109,7 @@ int bootstrap(void* pArgs)
 int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int priority)
 {
     int proc_slot;
-    struct _process* pNewProc;
+    struct _process* pNewProc = malloc(sizeof(struct _process));
 
     DebugConsole("spawn(): creating process %s\n", name);
 
@@ -127,13 +127,15 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
         stop(1);
     }
 
-    struct _process* pNewProc = malloc(sizeof(struct _process));
     if ((priority >= 0) && (priority <= 5)){
         pNewProc->priority = priority;
     }
     else {
         return -3;
     }
+
+
+    pNewProc->status = "Ready";
 
     /* Find an empty slot in the process table */
     // We need to iterate over the processTable and check process->Status flags for QUIT
