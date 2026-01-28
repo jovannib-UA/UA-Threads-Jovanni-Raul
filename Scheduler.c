@@ -213,14 +213,7 @@ static int launch(void* args)
 ************************************************************************ */
 int k_wait(int* code)
 {
-    while (!gChildExited)
-    {
-    }
-
-    if (code != NULL)
-    {
-        *code = gChildExitCode;
-    }
+    
     return gChildPid;
 
 }
@@ -238,7 +231,7 @@ int k_wait(int* code)
 *************************************************************************/
 void k_exit(int code)
 {
-
+    console_output(debugFlag, "All processes completed.\n");
     gChildExitCode = code;
     gChildExited = 1;
     return;
