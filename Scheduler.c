@@ -82,10 +82,10 @@ int bootstrap(void* pArgs)
     }
 
     /* Initialized and ready to go!! */
-
+    console_output(debugFlag, "All processes completed.\n");
     /* This should never return since we are not a real process. */
 
-    stop(-3);
+    
     return 0;
 
 }
@@ -128,7 +128,7 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
     }
 
     if ((priority >= 0) && (priority <= 5)){
-        pNewProc->priority = priority;
+        pNewProc->priority = &priority;
     }
     else {
         return -3;
@@ -136,6 +136,7 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
 
 
     pNewProc->status = "Ready";
+    pNewProc->startArgs[0] = &arg;
 
     /* Find an empty slot in the process table */
     // We need to iterate over the processTable and check process->Status flags for QUIT
@@ -215,7 +216,13 @@ static int launch(void* args)
 ************************************************************************ */
 int k_wait(int* code)
 {
-    
+    while (!gChildExited)
+    {
+    }
+    if (code != NULL)
+    {
+        *code = gChildExitCode;
+    }
     return gChildPid;
 
 }
@@ -233,10 +240,9 @@ int k_wait(int* code)
 *************************************************************************/
 void k_exit(int code)
 {
-    console_output(debugFlag, "All processes completed.\n");
     gChildExitCode = code;
     gChildExited = 1;
-    return;
+    
     //testing for purposes
 
 }
@@ -328,10 +334,10 @@ void display_process_table(void)
 *************************************************************************/
 void dispatcher(void)
 {
-    Process *nextProcess = NULL;
+    //Process *nextProcess = NULL;
 
  /* IMPORTANT: context switch enables interrupts. */
- context_switch(nextProcess->context);
+ //context_switch(nextProcess->context);
 }
 
 /**************************************************************************
