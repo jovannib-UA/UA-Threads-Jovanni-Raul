@@ -1,4 +1,12 @@
 
+
+/*
+    CYBV 489
+    Professor Li Xu
+    Group 10 Jovanni Blanco, Raul Cano
+    02/01/2026
+*/
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
@@ -14,7 +22,6 @@ int debugFlag = 1;
 static int gChildExited = 0;
 static int gChildExitCode = 0;
 static int gChildPid = -1;
-
 static int watchdog(char*);
 static inline void disableInterrupts();
 void dispatcher();
@@ -82,14 +89,18 @@ int bootstrap(void* pArgs)
     }
 
     /* Initialized and ready to go!! */
-
+    console_output(debugFlag, "All processes completed.\n");
+    
     /* This should never return since we are not a real process. */
-
     stop(-3);
     return 0;
 
+    /*This returns 1 (true) if name is "watchdog, if not it returns 0. */
 }
-
+static int isWatchdogName(const char* name)
+{
+    return (name != NULL && strcmp(name, "watchdog") == 0);
+}
 /*************************************************************************
    k_spawn()
 
@@ -109,7 +120,7 @@ int bootstrap(void* pArgs)
 int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int priority)
 {
     int proc_slot;
-    struct _process* pNewProc;
+    struct _process* pNewProc = malloc(sizeof(struct _process));
 
     DebugConsole("spawn(): creating process %s\n", name);
 
@@ -127,27 +138,15 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
         stop(1);
     }
 
-    struct _process* pNewProc = malloc(sizeof(struct _process));
-    if ((priority >= 0) && (priority <= 5)){
-        pNewProc->priority = priority;
-    }
-    else {
-        return -3;
-    }
-
-    /* Find an empty slot in the process table */
-    // We need to iterate over the processTable and check process->Status flags for QUIT
-    // else, return -4 that process table is full
-
     proc_slot = 1;  // just use 1 for now!
     pNewProc = &processTable[proc_slot];
-
-    /* Setup the entry in the process table. */
-    strcpy(pNewProc->name, name);
-
+    /*Assign a pid to the process and without this pid stays 0.*/
     pNewProc->pid = nextPid++;
     gChildPid = pNewProc->pid;
-    pNewProc->entryPoint = entryPoint;
+  
+    /* Setup the entry in the process table. */
+    strcpy(pNewProc->name, name);
+    
     /* If there is a parent process,add this to the list of children. */
     if (runningProcess != NULL)
     {
@@ -158,16 +157,16 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
     /* Initialize context for this process, but use launch function pointer for
      * the initial value of the process's program counter (PC)
     */
-    
+
     pNewProc->context = context_initialize(launch, stacksize, arg);
 
-    if (!isWatchdogName(name)) {
+    if (!isWatchdogName(name)) 
+    {
         Process* saved = runningProcess;
         runningProcess = pNewProc;
         entryPoint(arg);
         runningProcess = saved;
     }
-
 
     return pNewProc->pid;
 
@@ -186,7 +185,6 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
 *************************************************************************/
 static int launch(void* args)
 {
-    //Process* p = (Process*)args;
 
     DebugConsole("launch(): started: %s\n", runningProcess->name);
 
@@ -194,7 +192,6 @@ static int launch(void* args)
     /* Call the function passed to spawn and capture its return value */
     DebugConsole("Process %d returned to launch\n", runningProcess->pid);
     /* Stop the process gracefully */
-    stop(1);
     return 0;
 }
 
@@ -212,8 +209,17 @@ static int launch(void* args)
 
 ************************************************************************ */
 int k_wait(int* code)
+/*Wait until the child exits*/
 {
-    
+    while (!gChildExited)
+    {
+        
+    }
+    if (code != NULL)
+    {
+        *code = gChildExitCode;
+    }
+
     return gChildPid;
 
 }
@@ -231,12 +237,10 @@ int k_wait(int* code)
 *************************************************************************/
 void k_exit(int code)
 {
-    console_output(debugFlag, "All processes completed.\n");
     gChildExitCode = code;
     gChildExited = 1;
     return;
     //testing for purposes
-
 }
 
 /**************************************************************************
@@ -326,10 +330,11 @@ void display_process_table(void)
 *************************************************************************/
 void dispatcher(void)
 {
-    Process *nextProcess = NULL;
+    Process* nextProcess = NULL;
 
- /* IMPORTANT: context switch enables interrupts. */
- context_switch(nextProcess->context);
+    /* IMPORTANT: context switch enables interrupts. */
+    context_switch(nextProcess->context);
+
 }
 
 /**************************************************************************
@@ -402,9 +407,4 @@ static void DebugConsole(char* format, ...)
 int check_io_scheduler()
 {
     return false;
-}
-
-static int isWatchdogName(const char* name)
-{
-    return (name != NULL && strcmp(name, "watchdog") == 0);
 }
