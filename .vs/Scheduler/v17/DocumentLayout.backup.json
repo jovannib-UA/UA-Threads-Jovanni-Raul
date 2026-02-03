@@ -5,6 +5,26 @@
     {
       "AbsoluteMoniker": "D:0:0:{9C3A6259-D35E-453A-9A17-62B44C793A76}|Scheduler.vcxproj|C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\Scheduler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{9C3A6259-D35E-453A-9A17-62B44C793A76}|Scheduler.vcxproj|solutionrelative:Scheduler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C3A6259-D35E-453A-9A17-62B44C793A76}|Scheduler.vcxproj|C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\Processes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9C3A6259-D35E-453A-9A17-62B44C793A76}|Scheduler.vcxproj|solutionrelative:Processes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C3A6259-D35E-453A-9A17-62B44C793A76}|Scheduler.vcxproj|C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\Include\\Scheduler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9C3A6259-D35E-453A-9A17-62B44C793A76}|Scheduler.vcxproj|solutionrelative:Include\\Scheduler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F10594A-A37F-4B06-8053-7E142CE536B5}|SchedulerTest00\\SchedulerTest00.vcxproj|C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\Include\\SchedulerTesting.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F10594A-A37F-4B06-8053-7E142CE536B5}|SchedulerTest00\\SchedulerTest00.vcxproj|solutionrelative:Include\\SchedulerTesting.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F10594A-A37F-4B06-8053-7E142CE536B5}|SchedulerTest00\\SchedulerTest00.vcxproj|C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\SchedulerTest00\\SchedulerTest00.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F10594A-A37F-4B06-8053-7E142CE536B5}|SchedulerTest00\\SchedulerTest00.vcxproj|solutionrelative:SchedulerTest00\\SchedulerTest00.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A35E905E-C6A4-416D-9217-02C0456E5CDD}|SchedulerTestCommon\\SchedulerTestCommon.vcxproj|C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\SchedulerTestCommon\\SchedulerTestCommon.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A35E905E-C6A4-416D-9217-02C0456E5CDD}|SchedulerTestCommon\\SchedulerTestCommon.vcxproj|solutionrelative:SchedulerTestCommon\\SchedulerTestCommon.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,10 +44,75 @@
               "RelativeDocumentMoniker": "Scheduler.c",
               "ToolTip": "C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\Scheduler.c",
               "RelativeToolTip": "Scheduler.c",
-              "ViewState": "AgIAAJgBAAAAAAAAAAAAAKsAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAGwBAAAAAAAAAAAkwIUBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-01-16T01:40:22.594Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Processes.h",
+              "DocumentMoniker": "C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\Processes.h",
+              "RelativeDocumentMoniker": "Processes.h",
+              "ToolTip": "C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\Processes.h",
+              "RelativeToolTip": "Processes.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-02-03T00:59:22.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Scheduler.h",
+              "DocumentMoniker": "C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\Include\\Scheduler.h",
+              "RelativeDocumentMoniker": "Include\\Scheduler.h",
+              "ToolTip": "C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\Include\\Scheduler.h",
+              "RelativeToolTip": "Include\\Scheduler.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-02-03T00:59:15.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SchedulerTesting.h",
+              "DocumentMoniker": "C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\Include\\SchedulerTesting.h",
+              "RelativeDocumentMoniker": "Include\\SchedulerTesting.h",
+              "ToolTip": "C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\Include\\SchedulerTesting.h",
+              "RelativeToolTip": "Include\\SchedulerTesting.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-02-03T00:59:03.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SchedulerTest00.c",
+              "DocumentMoniker": "C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\SchedulerTest00\\SchedulerTest00.c",
+              "RelativeDocumentMoniker": "SchedulerTest00\\SchedulerTest00.c",
+              "ToolTip": "C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\SchedulerTest00\\SchedulerTest00.c",
+              "RelativeToolTip": "SchedulerTest00\\SchedulerTest00.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-02-03T00:59:10.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SchedulerTestCommon.c",
+              "DocumentMoniker": "C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\SchedulerTestCommon\\SchedulerTestCommon.c",
+              "RelativeDocumentMoniker": "SchedulerTestCommon\\SchedulerTestCommon.c",
+              "ToolTip": "C:\\CYBV_489\\THREADS-Scheduler Starter Project\\THREADS-Scheduler\\UA-Threads-Jovanni-Raul\\SchedulerTestCommon\\SchedulerTestCommon.c",
+              "RelativeToolTip": "SchedulerTestCommon\\SchedulerTestCommon.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-02-03T00:58:59.729Z",
               "EditorCaption": ""
             }
           ]
