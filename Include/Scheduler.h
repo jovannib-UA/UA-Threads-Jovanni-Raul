@@ -37,5 +37,5 @@ int   get_start_time(void);
 void  time_slice(void);
 void  dispatcher();
 int	  read_time(void);
-DWORD read_clock(void);
+uint32_t read_clock(void);
 

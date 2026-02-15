@@ -20,6 +20,6 @@ typedef struct _process
     int            exitCode;
 	uint32_t	   startTime;
 	uint32_t	   cpuTime;
-	uint32_t       lastReadTime;
-
+	uint32_t	   lastStartTime;
+	int			   started;
 } Process;
