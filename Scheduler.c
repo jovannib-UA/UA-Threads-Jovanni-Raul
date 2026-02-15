@@ -1,14 +1,8 @@
 /*
     CYBV 489
-<<<<<<< HEAD
-    Group 10: Raul Cano & Jovanni Blanco
-    Professor: Li Xu
-    Last Update: 1/29/2026
-=======
-    Group 10: Jake Newton & Jose Aguilar
+    Group 10: Raul Cano and Jovanni Blanco
     Professor: Li Xu
     Last Update: 2/12/2026
->>>>>>> upstream/main
 */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -16,6 +10,7 @@
 #define STATUS_RUNNING  2
 #define STATUS_BLOCKED  3
 #define STATUS_QUIT     4
+#define TIME_SLICE_MS   10
 
 #include <stdio.h>
 #include <string.h>
@@ -47,18 +42,111 @@ static void DebugConsole(char* format, ...);
 static void clock_handler(char* devicename, uint8_t command, uint32_t status);
 static int isWatchdogName(const char* name);
 static Process* readyQ[HIGHEST_PRIORITY + 1];
-<<<<<<< HEAD
-=======
-static int count_children(const Process* p);
+
 static int find_free_slot(void);
+static int count_children(const Process* p);
 void time_slice(void);
->>>>>>> upstream/main
+
+static int signalTable[MAX_PROCESSES];
+
+static Process* get_process_by_pid(int pid)
+{
+    for (int i = 0; i < MAX_PROCESSES; i++)
+    {
+        if (processTable[i].pid == pid)
+        {
+            return &processTable[i];
+        }
+    }
+    return NULL;
+}
+
+static int get_slot_by_process(Process* p)
+{
+    if (p == NULL) return -1;
+    return (int)(p - processTable);
+}
+
+static void enqueue_ready(Process* p)
+{
+    if (p == NULL) return;
+
+    int pr = p->priority;
+    if (pr < LOWEST_PRIORITY) pr = LOWEST_PRIORITY;
+    if (pr > HIGHEST_PRIORITY) pr = HIGHEST_PRIORITY;
+
+    p->nextReadyProcess = NULL;
+
+    if (readyQ[pr] == NULL)
+    {
+        readyQ[pr] = p;
+        return;
+    }
+
+    Process* current = readyQ[pr];
+    while (current->nextReadyProcess != NULL)
+    {
+        current = current->nextReadyProcess;
+    }
+    current->nextReadyProcess = p;
+}
+
+static Process* dequeue_ready_highest(void)
+{
+    for (int pr = HIGHEST_PRIORITY; pr >= LOWEST_PRIORITY; pr--)
+    {
+        if (readyQ[pr] != NULL)
+        {
+            Process* p = readyQ[pr];
+            readyQ[pr] = p->nextReadyProcess;
+            p->nextReadyProcess = NULL;
+            return p;
+        }
+    }
+    return NULL;
+}
+
+static int any_non_system_active(void)
+{
+    for (int i = 0; i < MAX_PROCESSES; i++)
+    {
+        if (processTable[i].pid != 0)
+        {
+            if (strcmp(processTable[i].name, "watchdog") != 0 &&
+                strcmp(processTable[i].name, "Scheduler") != 0)
+            {
+                if (processTable[i].status == STATUS_READY ||
+                    processTable[i].status == STATUS_RUNNING ||
+                    processTable[i].status == STATUS_BLOCKED)
+                {
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
+}
+
+static void unlink_child(Process* parent, Process* child)
+{
+    if (!parent || !child) return;
+
+    Process** link = &parent->pChildren;
+    while (*link)
+    {
+        if (*link == child)
+        {
+            *link = child->nextSiblingProcess;
+            return;
+        }
+        link = &(*link)->nextSiblingProcess;
+    }
+}
 
 /* DO NOT REMOVE */
 extern int SchedulerEntryPoint(void* pArgs);
 int check_io_scheduler();
 check_io_function check_io;
-
 
 /*************************************************************************
    bootstrap()
@@ -99,39 +187,30 @@ int bootstrap(void* pArgs)
         processTable[i].pParent = NULL;
         processTable[i].pChildren = NULL;
         processTable[i].status = 0;
-<<<<<<< HEAD
-    }
-=======
         processTable[i].priority = 0;
         processTable[i].entryPoint = NULL;
         processTable[i].stack = NULL;
         processTable[i].stacksize = 0;
         processTable[i].name[0] = '\0';
         processTable[i].startArgs[0] = '\0';
+        processTable[i].exitCode = 0;
+        signalTable[i] = 0;
+        processTable[1].cpuTime = 0;
     }
 
     runningProcess = NULL;
     nextPid = 1;
->>>>>>> upstream/main
 
-    runningProcess = NULL;
-    nextPid = 1;
     /* Initialize the Ready list, etc. */
     for (int p = 0; p <= HIGHEST_PRIORITY; p++)
     {
         readyQ[p] = NULL;
     }
-<<<<<<< HEAD
-    /* Initialize the clock interrupt handler */
-    intVector = get_interrupt_handlers();
-    intVector[THREADS_TIMER_INTERRUPT] = clock_handler;
-=======
 
     /* Initialize the clock interrupt handler */
     intVector = get_interrupt_handlers();
     intVector[THREADS_TIMER_INTERRUPT] = clock_handler;
 
->>>>>>> upstream/main
     /* startup a watchdog process */
     result = k_spawn("watchdog", watchdog, NULL, THREADS_MIN_STACK_SIZE, LOWEST_PRIORITY);
     if (result < 0)
@@ -148,37 +227,13 @@ int bootstrap(void* pArgs)
         stop(1);
     }
 
-    {
-        int slot = 0;
-        for (int i = 0; i < MAX_PROCESSES; i++)
-        {
-            if (processTable[i].pid != 0 && strcmp(processTable[i].name, "Scheduler") == 0)
-            {
-                slot = i;
-                break;
-            }
-        }
-
-        if (slot != 0)
-        {
-            Process* saved = runningProcess;
-            runningProcess = &processTable[slot];
-            runningProcess->status = STATUS_RUNNING;
-
-            SchedulerEntryPoint(NULL);
-
-            runningProcess = saved;
-        }
-    }
+    dispatcher();
 
     /* Initialized and ready to go!! */
     console_output(debugFlag, "All processes completed.\n");
     // not a real process, wont return any debug flags
 
-<<<<<<< HEAD
-=======
     stop(0);
->>>>>>> upstream/main
     return 0;
 
 }
@@ -215,33 +270,18 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
         enableInterrupts();
         return -1;
     }
+
     if (strlen(name) >= (MAXNAME - 1))
     {
         console_output(debugFlag, "spawn(): Process name is too long.  Halting...\n");
         stop(1);
     }
 
-<<<<<<< HEAD
-    if (!(priority < 0 || priority > 5)) //checks if priority is between 0 and 5 
-    {
-        pNewProc->priority = &priority; //assign address of priority variable to pNewProc priority field
-    }
-    else
-    {
-        return -3; //if priority is not between 0 and 5 return -3
-    }
-
-
-    pNewProc->status = "Ready...";
-    pNewProc->startArgs[0] = &arg;
-
-    /* Find an empty slot in the process table */
-=======
     if (priority < LOWEST_PRIORITY || priority > HIGHEST_PRIORITY)
     {
         console_output(debugFlag, "spawn(): Priority out of range.\n");
         enableInterrupts();
-        return -1;
+        return -3;
     }
 
     if (stacksize < THREADS_MIN_STACK_SIZE)
@@ -256,29 +296,25 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
     if (proc_slot < 0)
     {
         enableInterrupts();
-        return -4;
+        return -1;
     }
->>>>>>> upstream/main
 
     pNewProc = &processTable[proc_slot];
 
     /* Setup the entry in the process table. */
     strcpy(pNewProc->name, name);
-<<<<<<< HEAD
-
-    pNewProc->pid = gChildPid = nextPid++; //generate a new PID and set pNewProc and gChildPid to it
-    pNewProc->entryPoint = entryPoint; //assign entry point with new address
-
-=======
     pNewProc->pid = nextPid++;
-    if (priority > 5 || priority < 0) {
-        console_output(debugFlag, "spawn(): Priority out of range\n");
-        return -3;
-    }
     pNewProc->priority = priority;
     pNewProc->status = STATUS_READY;
     pNewProc->entryPoint = entryPoint;
     pNewProc->stacksize = (unsigned int)stacksize;
+    pNewProc->nextReadyProcess = NULL;
+    pNewProc->nextSiblingProcess = NULL;
+    pNewProc->pChildren = NULL;
+    pNewProc->pParent = NULL;
+    pNewProc->cpuTime = 0;
+    pNewProc->startTime = read_clock();
+    pNewProc->lastReadTime = 0;
 
     if (arg != NULL)
     {
@@ -289,12 +325,25 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
     {
         pNewProc->startArgs[0] = '\0';
     }
->>>>>>> upstream/main
 
     /* If there is a parent process,add this to the list of children. */
     if (runningProcess != NULL)
     {
         pNewProc->pParent = runningProcess;
+
+        if (runningProcess->pChildren == NULL)
+        {
+            runningProcess->pChildren = pNewProc;
+        }
+        else
+        {
+            Process* cur = runningProcess->pChildren;
+            while (cur->nextSiblingProcess != NULL)
+            {
+                cur = cur->nextSiblingProcess;
+            }
+            cur->nextSiblingProcess = pNewProc;
+        }
     }
 
     /* Add the process to the ready list. */
@@ -302,23 +351,11 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
     /* Initialize context for this process, but use launch function pointer for
      * the initial value of the process's program counter (PC)
     */
-<<<<<<< HEAD
-
-    pNewProc->context = context_initialize(launch, stacksize, arg);
-
-    if (!isWatchdogName(name)) //checks if watchdog process is being created
-    {
-        Process* psave = runningProcess; // saves running process in psave variable
-        runningProcess = pNewProc; //points to pNewProc treating the new process as current running process
-        entryPoint(arg); //calls run process
-        runningProcess = psave; //after function completes, runningProcess points to psave variable
-=======
-    pNewProc->context = context_initialize(launch, stacksize, arg);
-
+    pNewProc->context = context_initialize(launch, stacksize, pNewProc);
+    enqueue_ready(pNewProc);
     if (!isWatchdogName(name) && strcmp(name, "Scheduler") != 0)
     {
         gChildPid = pNewProc->pid;
->>>>>>> upstream/main
     }
 
     enableInterrupts();
@@ -339,16 +376,33 @@ int k_spawn(char* name, int (*entryPoint)(void*), void* arg, int stacksize, int 
 *************************************************************************/
 static int launch(void* args)
 {
-    Process* p = (Process*)args;
+    if (runningProcess != NULL)
+    {
+        runningProcess->status = STATUS_RUNNING;
+    }
 
     DebugConsole("launch(): started: %s\n", runningProcess->name);
 
     /* Enable interrupts */
+    enableInterrupts();
 
     /* Call the function passed to spawn and capture its return value */
+    int rc = 0;
+    if (runningProcess->entryPoint != NULL)
+    {
+        void* callArg = NULL;
+        if (runningProcess->startArgs[0] != '\0')
+        {
+            callArg = (void*)runningProcess->startArgs;
+        }
+        rc = runningProcess->entryPoint(callArg);
+    }
+
     DebugConsole("Process %d returned to launch\n", runningProcess->pid);
 
     /* Stop the process gracefully */
+    k_exit(rc);
+
     return 0;
 }
 
@@ -367,72 +421,66 @@ static int launch(void* args)
 ************************************************************************ */
 int k_wait(int* code)
 {
-<<<<<<< HEAD
-    while (!gChildExited) //busy wait loop for created child process
-=======
-    if (gChildPid < 0)
->>>>>>> upstream/main
+    if (runningProcess == NULL)
     {
-        return -1;
+        return -4;
     }
 
-<<<<<<< HEAD
-    if (code != NULL) //if the process is Null, store exit code
-=======
-    if (!gChildExited)
+    while (1)
     {
-        Process* child = NULL;
+        disableInterrupts();
+        int hasChild = 0;
+
         for (int i = 0; i < MAX_PROCESSES; i++)
         {
-            if (processTable[i].pid == gChildPid)
+            if ((processTable[i].pid != 0) && (processTable[i].pParent == runningProcess))
             {
-                child = &processTable[i];
-                break;
+                hasChild = 1;
+
+                if (processTable[i].status == STATUS_QUIT)
+                {
+                    Process* child = &processTable[i];
+                    int pid = child->pid;
+
+                    if (code != NULL)
+                    {
+                        *code = child->exitCode;
+                    }
+
+                    unlink_child(runningProcess, child);
+
+                    child->pid = 0;
+                    child->context = NULL;
+                    child->nextReadyProcess = NULL;
+                    child->nextSiblingProcess = NULL;
+                    child->pParent = NULL;
+                    child->pChildren = NULL;
+                    child->status = 0;
+                    child->priority = 0;
+                    child->entryPoint = NULL;
+                    child->stack = NULL;
+                    child->stacksize = 0;
+                    child->name[0] = '\0';
+                    child->startArgs[0] = '\0';
+                    child->exitCode = 0;
+                    signalTable[i] = 0;
+
+                    enableInterrupts();
+                    return pid;
+                }
             }
         }
 
-        if (child != NULL)
+        if (!hasChild)
         {
-            Process* saved = runningProcess;
-
-            gChildExited = 0;
-            gChildExitCode = 0;
-
-            runningProcess = child;
-            runningProcess->status = STATUS_RUNNING;
-
-            int rc = 0;
-            if (runningProcess->entryPoint != NULL)
-            {
-                rc = runningProcess->entryPoint((void*)runningProcess->startArgs);
-            }
-
-            if (!gChildExited)
-            {
-
-                k_exit(rc);
-            }
-
-            runningProcess = saved;
+            enableInterrupts();
+            return -4;
         }
-        else
-        {
-            gChildExitCode = -3;
-            gChildExited = 1;
-        }
-    }
 
-    if (code != NULL)
->>>>>>> upstream/main
-    {
-        *code = gChildExitCode;
+        runningProcess->status = STATUS_BLOCKED;
+        enableInterrupts();
+        dispatcher();
     }
-
-<<<<<<< HEAD
-    return gChildPid; //return PID of terminated child process
-=======
-    return gChildPid;
->>>>>>> upstream/main
 }
 
 
@@ -449,14 +497,19 @@ int k_wait(int* code)
 *************************************************************************/
 void k_exit(int code)
 {
-<<<<<<< HEAD
-    gChildExitCode = code; //returns exit code value on exit
-    gChildExited = 1; //indicates completion
+    if (!runningProcess) return;
+    disableInterrupts();
+    runningProcess->exitCode = code;
+    runningProcess->status = STATUS_QUIT;
+    Process* parent = runningProcess->pParent;
+    if (parent && parent->status == STATUS_BLOCKED)
+    {
+        parent->status = STATUS_READY;
+        enqueue_ready(parent);
+    }
 
-=======
-    gChildExitCode = code;
-    gChildExited = 1;
->>>>>>> upstream/main
+    enableInterrupts();
+    dispatcher();
 }
 
 /**************************************************************************
@@ -470,7 +523,37 @@ void k_exit(int code)
 *************************************************************************/
 int k_kill(int pid, int signal)
 {
-    int result = 0;
+    disableInterrupts();
+
+    Process* p = get_process_by_pid(pid);
+    if (p == NULL)
+    {
+        enableInterrupts();
+        return -1;
+    }
+
+    int slot = get_slot_by_process(p);
+    if (slot < 0 || slot >= MAX_PROCESSES)
+    {
+        enableInterrupts();
+        return -1;
+    }
+
+    signalTable[slot] = signal;
+
+    if (p->status != STATUS_QUIT)
+    {
+        p->exitCode = -5;
+        p->status = STATUS_QUIT;
+
+        if (p->pParent != NULL && p->pParent->status == STATUS_BLOCKED)
+        {
+            p->pParent->status = STATUS_READY;
+            enqueue_ready(p->pParent);
+        }
+    }
+
+    enableInterrupts();
     return 0;
 }
 
@@ -488,7 +571,80 @@ int k_getpid(void)
 ***************************************************************************/
 int k_join(int pid, int* pChildExitCode)
 {
-    return 0;
+    if (runningProcess == NULL)
+    {
+        return -4;
+    }
+
+    while (1)
+    {
+        disableInterrupts();
+
+        int found = 0;
+        int childSlot = -1;
+
+        for (int i = 0; i < MAX_PROCESSES; i++)
+        {
+            if (processTable[i].pid == pid && processTable[i].pParent == runningProcess)
+            {
+                found = 1;
+                childSlot = i;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            enableInterrupts();
+            return -4;
+        }
+
+        if (processTable[childSlot].status == STATUS_QUIT)
+        {
+            Process* child = &processTable[childSlot];
+
+            if (pChildExitCode != NULL)
+            {
+                *pChildExitCode = child->exitCode;
+            }
+
+            unlink_child(runningProcess, child);
+
+            child->pid = 0;
+            child->context = NULL;
+            child->nextReadyProcess = NULL;
+            child->nextSiblingProcess = NULL;
+            child->pParent = NULL;
+            child->pChildren = NULL;
+            child->status = 0;
+            child->priority = 0;
+            child->entryPoint = NULL;
+            child->stack = NULL;
+            child->stacksize = 0;
+            child->name[0] = '\0';
+            child->startArgs[0] = '\0';
+            child->exitCode = 0;
+            signalTable[childSlot] = 0;
+
+            enableInterrupts();
+            return pid;
+        }
+
+
+        runningProcess->status = STATUS_BLOCKED;
+
+        enableInterrupts();
+        dispatcher();
+
+        if (signaled())
+        {
+            if (pChildExitCode != NULL)
+            {
+                *pChildExitCode = -5;
+            }
+            return -5;
+        }
+    }
 }
 
 /**************************************************************************
@@ -496,6 +652,22 @@ int k_join(int pid, int* pChildExitCode)
 *************************************************************************/
 int unblock(int pid)
 {
+    disableInterrupts();
+
+    Process* p = get_process_by_pid(pid);
+    if (p == NULL)
+    {
+        enableInterrupts();
+        return -1;
+    }
+
+    if (p->status == STATUS_BLOCKED)
+    {
+        p->status = STATUS_READY;
+        enqueue_ready(p);
+    }
+
+    enableInterrupts();
     return 0;
 }
 
@@ -504,6 +676,19 @@ int unblock(int pid)
 *************************************************************************/
 int block(int newStatus)
 {
+    disableInterrupts();
+
+    if (runningProcess == NULL)
+    {
+        enableInterrupts();
+        return -1;
+    }
+
+    runningProcess->status = newStatus;
+
+    enableInterrupts();
+    dispatcher();
+
     return 0;
 }
 
@@ -512,6 +697,17 @@ int block(int newStatus)
 *************************************************************************/
 int signaled(void)
 {
+    if (runningProcess == NULL) return 0;
+
+    int slot = get_slot_by_process(runningProcess);
+    if (slot < 0 || slot >= MAX_PROCESSES) return 0;
+
+    if (signalTable[slot] != 0)
+    {
+        signalTable[slot] = 0;
+        return 1;
+    }
+
     return 0;
 }
 /*************************************************************************
@@ -545,7 +741,8 @@ void display_process_table(void)
             continue;
 
         int parentPid = (p->pParent != NULL) ? p->pParent->pid : -1;
-        switch (p->status) {
+        switch (p->status)
+        {
         case STATUS_READY:
             statusStr = "READY";
             break;
@@ -570,12 +767,10 @@ void display_process_table(void)
             p->priority,
             statusStr,
             count_children(p),
-            0,
-            (p->name[0] ? p->name : "(noname)")
-        );
+            p->cpuTime,
+            (p->name[0] ? p->name : "(noname)"));
     }
-
-    console_output(FALSE, "\n");
+    return;
 }
 
 /**************************************************************************
@@ -591,47 +786,34 @@ void display_process_table(void)
 
 void dispatcher(void)
 {
-<<<<<<< HEAD
-    Process* nextProcess = NULL;
     disableInterrupts();
 
-    if (nextProcess == NULL)
+    Process* prev = runningProcess;
+
+    if (prev && prev->status == STATUS_RUNNING)
     {
-        enableInterrupts();
-        return;
+        // accumulate CPU time
+        uint32_t now = read_clock();
+        prev->cpuTime += now - prev->lastReadTime;
+
+        prev->status = STATUS_READY;
+        enqueue_ready(prev);
     }
-    if (runningProcess != NULL && runningProcess->status == STATUS_RUNNING)
-    {
-        runningProcess->status = STATUS_READY;
-        ready_enqueue(runningProcess);
-    }
 
-    runningProcess = nextProcess;
-    runningProcess->status = STATUS_RUNNING;
+    Process* next = dequeue_ready_highest();
 
-    enableInterrupts();
-
-    /* IMPORTANT: context switch enables interrupts. */
-=======
-    return;
-
-    Process* nextProcess = NULL;
-    disableInterrupts();
-
-    if (nextProcess == NULL)
+    if (!next)
     {
         enableInterrupts();
         return;
     }
 
-    runningProcess = nextProcess;
+    runningProcess = next;
     runningProcess->status = STATUS_RUNNING;
+    runningProcess->lastReadTime = read_clock();  // start timing
 
     enableInterrupts();
-
- /* IMPORTANT: context switch enables interrupts. */
->>>>>>> upstream/main
-    context_switch(nextProcess->context);
+    context_switch(next->context);
 }
 
 /**************************************************************************
@@ -650,7 +832,13 @@ static int watchdog(char* dummy)
     DebugConsole("watchdog(): called\n");
     while (1)
     {
+        if (!any_non_system_active())
+        {
+            console_output(FALSE, "watchdog(): no non-system active processes; stopping.\n");
+            stop(0);
+        }
         check_deadlock();
+        dispatcher();
     }
     return 0;
 }
@@ -706,6 +894,20 @@ static void DebugConsole(char* format, ...)
     }
 }
 
+/*************************************************************************
+   Name - Get Start Time
+   purpose- returns the start tiume of a process in microseconds
+   Parameters -
+   Returns -
+*************************************************************************/
+
+int get_start_time(void)
+{
+    if (runningProcess == NULL)
+        return 0;
+        
+    return runningProcess->startTime;
+}
 
 /* there is no I/O yet, so return false. */
 int check_io_scheduler()
@@ -718,13 +920,25 @@ static void clock_handler(char* devicename, uint8_t command, uint32_t status)
     time_slice();
 }
 
-<<<<<<< HEAD
-=======
+
 void time_slice(void)
 {
+    disableInterrupts();
+
+    if (runningProcess && runningProcess->status == STATUS_RUNNING)
+    {
+        uint32_t now = read_clock();
+        runningProcess->cpuTime += now - runningProcess->lastReadTime;
+
+        runningProcess->status = STATUS_READY;
+        enqueue_ready(runningProcess);
+    }
+
+    enableInterrupts();
+    dispatcher();
 }
 
->>>>>>> upstream/main
+
 /* This returns 1(true) if name is "watchdog", if not it returns 0.*/
 static int isWatchdogName(const char* name)
 {
@@ -733,7 +947,7 @@ static int isWatchdogName(const char* name)
 
 static int find_free_slot(void)
 {
-    for (int i = 1; i < MAX_PROCESSES; i++)
+    for (int i = 0; i < MAX_PROCESSES; i++)
     {
         if (processTable[i].pid == 0)
         {
@@ -742,7 +956,6 @@ static int find_free_slot(void)
     }
     return -1;
 }
-
 
 static int count_children(const Process* p)
 {

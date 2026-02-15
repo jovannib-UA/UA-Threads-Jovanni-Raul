@@ -17,5 +17,9 @@ typedef struct _process
 	char*	       stack;
 	unsigned int   stacksize;
 	int            status;            /* READY, QUIT, BLOCKED, etc. */
+    int            exitCode;
+	uint32_t	   startTime;
+	uint32_t	   cpuTime;
+	uint32_t       lastReadTime;
 
 } Process;
