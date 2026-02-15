@@ -1,0 +1,1171 @@
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest00: started
+spawn(): creating process SchedulerTest00-Child1
+SchedulerTest00: after spawn of child with pid 3
+SchedulerTest00: waiting for child process
+SchedulerTest00-Child1: started
+SchedulerTest00-Child1: quitting
+SchedulerTest00: exit status for child 3 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest01: started
+spawn(): creating process SchedulerTest01-Child1
+SchedulerTest01: after spawn of child with pid 3
+SchedulerTest01: waiting for child process
+SchedulerTest01-Child1: started
+SchedulerTest01-Child1: performing spawn of first child
+spawn(): creating process SchedulerTest01-Child1-Child1
+SchedulerTest01-Child1: spawn of first child returned pid = 4
+SchedulerTest01-Child1: performing spawn of second child
+spawn(): creating process SchedulerTest01-Child1-Child2
+SchedulerTest01-Child1: spawn of second child returned pid = 5
+SchedulerTest01-Child1: performing first wait
+SchedulerTest01-Child1-Child2: started
+SchedulerTest01-Child1-Child2: quitting
+SchedulerTest01-Child1: exit status for child 5 is -3
+SchedulerTest01-Child1: performing second wait
+SchedulerTest01-Child1: exit status for child 5 is -3
+SchedulerTest01: exit status for child 5 is 1
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest02: started
+spawn(): creating process SchedulerTest02-Child1
+SchedulerTest02: after spawn of child with pid 3
+SchedulerTest02: waiting for child process
+SchedulerTest02-Child1: started
+SchedulerTest02-Child1: performing spawn of first child
+spawn(): creating process SchedulerTest02-Child1-Child1
+SchedulerTest02-Child1: spawn of first child returned pid = 4
+SchedulerTest02-Child1: performing spawn of second child
+spawn(): creating process SchedulerTest02-Child1-Child2
+SchedulerTest02-Child1: spawn of second child returned pid = 5
+SchedulerTest02-Child1: performing first wait.
+SchedulerTest02-Child1-Child2: started
+SchedulerTest02-Child1-Child2: quitting
+SchedulerTest02-Child1: exit status for child 5 is -3
+SchedulerTest02-Child1: performing second wait.
+SchedulerTest02-Child1: exit status for child 5 is -3
+SchedulerTest02: exit status for child 5 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest03: started
+spawn(): creating process SchedulerTest03-Child1
+SchedulerTest03: signaling first child
+SchedulerTest03-Child1: started
+SchedulerTest03-Child1: quitting
+SchedulerTest03: exit status for child 3 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest04: started
+spawn(): creating process SchedulerTest04-Child1
+SchedulerTest04: after spawn of child 3
+spawn(): creating process SchedulerTest04-Child2
+SchedulerTest04: after spawn of child 4
+spawn(): creating process SchedulerTest04-Child3
+SchedulerTest04: after spawn of child 5
+spawn(): creating process SchedulerTest04-Child4
+SchedulerTest04: after spawn of child 6
+spawn(): creating process SchedulerTest04-Child5
+SchedulerTest04: after spawn of child 7
+spawn(): creating process SchedulerTest04-Child6
+SchedulerTest04: after spawn of child 8
+spawn(): creating process SchedulerTest04-Child7
+SchedulerTest04: after spawn of child 9
+spawn(): creating process SchedulerTest04-Child8
+SchedulerTest04: after spawn of child 10
+spawn(): creating process SchedulerTest04-Child9
+SchedulerTest04: after spawn of child 11
+spawn(): creating process SchedulerTest04-Child10
+SchedulerTest04: after spawn of child 12
+spawn(): creating process SchedulerTest04-Child11
+SchedulerTest04: after spawn of child 13
+spawn(): creating process SchedulerTest04-Child12
+SchedulerTest04: after spawn of child 14
+spawn(): creating process SchedulerTest04-Child13
+SchedulerTest04: after spawn of child 15
+spawn(): creating process SchedulerTest04-Child14
+SchedulerTest04: after spawn of child 16
+spawn(): creating process SchedulerTest04-Child15
+SchedulerTest04: after spawn of child 17
+spawn(): creating process SchedulerTest04-Child16
+SchedulerTest04: after spawn of child 18
+spawn(): creating process SchedulerTest04-Child17
+SchedulerTest04: after spawn of child 19
+spawn(): creating process SchedulerTest04-Child18
+SchedulerTest04: after spawn of child 20
+spawn(): creating process SchedulerTest04-Child19
+SchedulerTest04: after spawn of child 21
+spawn(): creating process SchedulerTest04-Child20
+SchedulerTest04: after spawn of child 22
+spawn(): creating process SchedulerTest04-Child21
+SchedulerTest04: after spawn of child 23
+spawn(): creating process SchedulerTest04-Child22
+SchedulerTest04: after spawn of child 24
+spawn(): creating process SchedulerTest04-Child23
+SchedulerTest04: after spawn of child 25
+spawn(): creating process SchedulerTest04-Child24
+SchedulerTest04: after spawn of child 26
+spawn(): creating process SchedulerTest04-Child25
+SchedulerTest04: after spawn of child 27
+spawn(): creating process SchedulerTest04-Child26
+SchedulerTest04: after spawn of child 28
+spawn(): creating process SchedulerTest04-Child27
+SchedulerTest04: after spawn of child 29
+spawn(): creating process SchedulerTest04-Child28
+SchedulerTest04: after spawn of child 30
+spawn(): creating process SchedulerTest04-Child29
+SchedulerTest04: after spawn of child 31
+spawn(): creating process SchedulerTest04-Child30
+SchedulerTest04: after spawn of child 32
+spawn(): creating process SchedulerTest04-Child31
+SchedulerTest04: after spawn of child 33
+spawn(): creating process SchedulerTest04-Child32
+SchedulerTest04: after spawn of child 34
+spawn(): creating process SchedulerTest04-Child33
+SchedulerTest04: after spawn of child 35
+spawn(): creating process SchedulerTest04-Child34
+SchedulerTest04: after spawn of child 36
+spawn(): creating process SchedulerTest04-Child35
+SchedulerTest04: after spawn of child 37
+spawn(): creating process SchedulerTest04-Child36
+SchedulerTest04: after spawn of child 38
+spawn(): creating process SchedulerTest04-Child37
+SchedulerTest04: after spawn of child 39
+spawn(): creating process SchedulerTest04-Child38
+SchedulerTest04: after spawn of child 40
+spawn(): creating process SchedulerTest04-Child39
+SchedulerTest04: after spawn of child 41
+spawn(): creating process SchedulerTest04-Child40
+SchedulerTest04: after spawn of child 42
+spawn(): creating process SchedulerTest04-Child41
+SchedulerTest04: after spawn of child 43
+spawn(): creating process SchedulerTest04-Child42
+SchedulerTest04: after spawn of child 44
+spawn(): creating process SchedulerTest04-Child43
+SchedulerTest04: after spawn of child 45
+spawn(): creating process SchedulerTest04-Child44
+SchedulerTest04: after spawn of child 46
+spawn(): creating process SchedulerTest04-Child45
+SchedulerTest04: after spawn of child 47
+spawn(): creating process SchedulerTest04-Child46
+SchedulerTest04: after spawn of child 48
+spawn(): creating process SchedulerTest04-Child47
+SchedulerTest04: after spawn of child 49
+spawn(): creating process SchedulerTest04-Child48
+SchedulerTest04: after spawn of child -1
+SchedulerTest04-Child47: started
+SchedulerTest04-Child47: quitting
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+spawn(): creating process SchedulerTest04-Child49
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child50
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child51
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child52
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child53
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child54
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child55
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child56
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child57
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child58
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child59
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child60
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child61
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child62
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child63
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child64
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child65
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child66
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child67
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child68
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child69
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child70
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child71
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child72
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child73
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child74
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child75
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child76
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child77
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child78
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child79
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child80
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child81
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child82
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child83
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child84
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child85
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child86
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child87
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child88
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child89
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child90
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child91
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child92
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child93
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child94
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child95
+SchedulerTest04: after spawn of child -1
+spawn(): creating process SchedulerTest04-Child96
+SchedulerTest04: after spawn of child -1
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+SchedulerTest04: exit status for child 49 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest05: started
+spawn(): creating process SchedulerTest05-Child1
+SchedulerTest05: after spawn of child with pid 3
+spawn(): creating process SchedulerTest05-Child2
+SchedulerTest05: after spawn of child with pid 4
+spawn(): creating process SchedulerTest05-Child3
+SchedulerTest05: after spawn of child with pid 5
+spawn(): creating process SchedulerTest05-Child4
+SchedulerTest05: after spawn of child with pid 6
+SchedulerTest05-Child4: started
+SchedulerTest05-Child4: started, child number is 4
+SchedulerTest05-Child4: exiting, pid = 6
+SchedulerTest05: exit status for child 6 is -6
+SchedulerTest05: exit status for child 6 is -6
+SchedulerTest05: exit status for child 6 is -6
+SchedulerTest05: exit status for child 6 is -6
+spawn(): creating process SchedulerTest05-Child5
+SchedulerTest05: after spawn of child with pid 7
+spawn(): creating process SchedulerTest05-Child6
+SchedulerTest05: after spawn of child with pid 8
+spawn(): creating process SchedulerTest05-Child7
+SchedulerTest05: after spawn of child with pid 9
+spawn(): creating process SchedulerTest05-Child8
+SchedulerTest05: after spawn of child with pid 10
+SchedulerTest05: exit status for child 10 is -6
+SchedulerTest05: exit status for child 10 is -6
+SchedulerTest05: exit status for child 10 is -6
+SchedulerTest05: exit status for child 10 is -6
+spawn(): creating process SchedulerTest05-Child9
+SchedulerTest05: after spawn of child with pid 11
+spawn(): creating process SchedulerTest05-Child10
+SchedulerTest05: after spawn of child with pid 12
+spawn(): creating process SchedulerTest05-Child11
+SchedulerTest05: after spawn of child with pid 13
+spawn(): creating process SchedulerTest05-Child12
+SchedulerTest05: after spawn of child with pid 14
+SchedulerTest05: exit status for child 14 is -6
+SchedulerTest05: exit status for child 14 is -6
+SchedulerTest05: exit status for child 14 is -6
+SchedulerTest05: exit status for child 14 is -6
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest06: started
+spawn(): creating process SchedulerTest06-Child1
+SchedulerTest06: after spawn of child with pid 3
+SchedulerTest06: waiting for child process
+SchedulerTest06-Child1: started
+SchedulerTest06-Child1: performing spawn of first child
+spawn(): creating process SchedulerTest06-Child1-Child1
+SchedulerTest06-Child1: spawn of first child returned pid = 4
+SchedulerTest06-Child1: performing spawn of second child
+spawn(): creating process SchedulerTest06-Child1-Child2
+SchedulerTest06-Child1: spawn of first child returned pid = 5
+SchedulerTest06-Child1: signaling first child
+SchedulerTest06-Child1: after joining first child, status = -858993460
+SchedulerTest06-Child1: signaling second child
+SchedulerTest06-Child1: after joining second child, status = -858993460
+SchedulerTest06-Child1: performing joins
+SchedulerTest06-Child1-Child2: started
+SchedulerTest06-Child1-Child2: performing spawn of child
+spawn(): creating process SchedulerTest06-Child1-Child2-Child1
+SchedulerTest06-Child1-Child2: spawn of child returned pid = 6
+SchedulerTest06-Child1-Child2-Child1: started
+SchedulerTest06-Child1-Child2-Child1: quitting
+SchedulerTest06-Child1-Child2-Child1: exit status for child 6 is -3
+SchedulerTest06-Child1: exit status for child 6 is -3
+SchedulerTest06-Child1: exit status for child 6 is -3
+SchedulerTest06: exit status for child 6 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest07: started
+spawn(): creating process SchedulerTest07-Child1
+SchedulerTest07: waiting for child process
+SchedulerTest07-Child1: started
+SchedulerTest07-Child1: performing spawn of child
+spawn(): creating process SchedulerTest07-Child1-Child1
+SchedulerTest07-Child1: spawn of child returned pid = 4
+SchedulerTest07-Child1-Child1: started
+SchedulerTest07-Child1-Child1: quitting
+SchedulerTest07-Child1: exit status for child 4 is -3
+SchedulerTest07: exit status for child 4 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest08: started
+spawn(): creating process SchedulerTest08-Child1
+SchedulerTest08: after spawn of child with pid 3
+SchedulerTest08: waiting for child process
+SchedulerTest08-Child1: started
+SchedulerTest08-Child1: performing spawn of first child
+spawn(): creating process SchedulerTest08-Child1-Child1
+SchedulerTest08-Child1: spawn of first child returned pid = 4
+SchedulerTest08-Child1: performing spawn of second child
+spawn(): creating process SchedulerTest08-Child1-Child2
+SchedulerTest08-Child1: spawn of second child returned pid = 5
+SchedulerTest08-Child1: performing first wait
+SchedulerTest08-Child1-Child2: started
+SchedulerTest08-Child1-Child2: quitting
+SchedulerTest08-Child1: exit status for child 5 is -3
+SchedulerTest08-Child1: performing second wait
+SchedulerTest08-Child1: exit status for child 5 is -3
+SchedulerTest08: exit status for child 5 is 1
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest09: started
+spawn(): creating process SchedulerTest09-Child1
+SchedulerTest09: after spawn of child with pid 3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest10: started
+spawn(): creating process SchedulerTest10-Child1
+SchedulerTest10: after spawn of child with pid 3
+SchedulerTest10: waiting for child process
+SchedulerTest10-Child1: started
+SchedulerTest10-Child1: joining parent process
+SchedulerTest10-Child1: finished joining parent process
+SchedulerTest10: exit status for child 3 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest11: started
+spawn(): creating process SchedulerTest11-Child1
+SchedulerTest11: after spawn of child with pid 3
+SchedulerTest11: waiting for child process
+SchedulerTest11-Child1: started
+SchedulerTest11-Child1: quitting
+SchedulerTest11: exit status for child 3 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest12: started
+spawn(): creating process SchedulerTest12-Child1
+SchedulerTest12: after spawn of child with pid 3
+SchedulerTest12: waiting for child process
+SchedulerTest12-Child1: started
+SchedulerTest12-Child1: quitting
+SchedulerTest12: exit status for child 3 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest13: started
+spawn(): creating process SchedulerTest13-Child1
+SchedulerTest13: after spawn of child with pid 3
+spawn(): creating process SchedulerTest13-Child2
+SchedulerTest13: after spawn of child with pid 4
+SchedulerTest13: waiting for child process
+SchedulerTest13-Child2: started
+SchedulerTest13-Child2: signaling -1.
+SchedulerTest13-Child2: joining -1.
+SchedulerTest13-Child2: after joining child, pid -1, status = -858993460
+SchedulerTest13: exit status for child 4 is 5
+SchedulerTest13: waiting for child process
+SchedulerTest13: exit status for child 4 is 5
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest14: started
+spawn(): creating process SchedulerTest14-Child1
+SchedulerTest14: after spawn of child with pid 3
+spawn(): creating process SchedulerTest14-Child2
+SchedulerTest14: after spawn of child with pid 4
+SchedulerTest14: waiting for child process
+SchedulerTest14-Child2: started
+SchedulerTest14-Child2: signaling 3.
+SchedulerTest14-Child2: joining 3.
+SchedulerTest14-Child2: after joining child, pid 3, status = -858993460
+SchedulerTest14: exit status for child 4 is 5
+SchedulerTest14: waiting for child process
+SchedulerTest14: exit status for child 4 is 5
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest15: started
+spawn(): creating process SchedulerTest15-Child1
+SchedulerTest15: after spawn of child with pid 3
+spawn(): creating process SchedulerTest15-Child2
+SchedulerTest15: after spawn of child with pid 4
+SchedulerTest15: waiting for child process
+SchedulerTest15-Child2: started
+SchedulerTest15-Child2: joining 3
+SchedulerTest15-Child2: after joining child, pid 3, status = -858993460
+SchedulerTest15: exit status for child 4 is 5
+SchedulerTest15: waiting for child process
+SchedulerTest15: exit status for child 4 is 5
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest16: started
+SchedulerTest16: performing spawn of child
+spawn(): creating process SchedulerTest16-Child1
+SchedulerTest16: after spawn of child with pid 3
+SchedulerTest16: performing spawn of child
+spawn(): creating process SchedulerTest16-Child2
+SchedulerTest16: after spawn of child with pid 4
+SchedulerTest16: performing spawn of child
+spawn(): creating process SchedulerTest16-Child3
+SchedulerTest16: after spawn of child with pid 5
+SchedulerTest16: performing spawn of child
+spawn(): creating process SchedulerTest16-Child4
+SchedulerTest16: after spawn of child with pid 6
+SchedulerTest16: performing spawn of child
+spawn(): creating process SchedulerTest16-Child5
+SchedulerTest16: after spawn of child with pid 7
+SchedulerTest16: waiting for child process
+SchedulerTest16-Child5: k_getPid test FAILED by returning 7
+SchedulerTest16: exit status for child 7 is -2
+SchedulerTest16: waiting for child process
+SchedulerTest16: exit status for child 7 is -2
+SchedulerTest16: waiting for child process
+SchedulerTest16: exit status for child 7 is -2
+SchedulerTest16: waiting for child process
+SchedulerTest16: exit status for child 7 is -2
+SchedulerTest16: waiting for child process
+SchedulerTest16: exit status for child 7 is -2
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest17: started
+SchedulerTest17: performing spawn of child
+spawn(): creating process SchedulerTest17-Child1
+SchedulerTest17: performing spawn of child
+spawn(): creating process SchedulerTest17-Child2
+SchedulerTest17: after spawn of child with pid 4
+SchedulerTest17: performing spawn of child
+spawn(): creating process SchedulerTest17-Child3
+SchedulerTest17: after spawn of child with pid 5
+SchedulerTest17: performing spawn of child
+spawn(): creating process SchedulerTest17-Child4
+SchedulerTest17: after spawn of child with pid 6
+SchedulerTest17: performing spawn of child
+spawn(): creating process SchedulerTest17-Child5
+SchedulerTest17: after spawn of child with pid 7
+SchedulerTest17: performing spawn of child
+spawn(): creating process SchedulerTest17-Child6
+SchedulerTest17: after spawn of child with pid 8
+SchedulerTest17: performing spawn of child
+spawn(): creating process SchedulerTest17-Child7
+SchedulerTest17: after spawn of child with pid 9
+SchedulerTest17: performing spawn of child
+spawn(): creating process SchedulerTest17-Child8
+SchedulerTest17: after spawn of child with pid 10
+SchedulerTest17: performing spawn of child
+spawn(): creating process SchedulerTest17-Child9
+SchedulerTest17: after spawn of child with pid 11
+SchedulerTest17: performing spawn of child
+spawn(): creating process SchedulerTest17-Child10
+SchedulerTest17: after spawn of child with pid 12
+SchedulerTest17: performing spawn of child
+spawn(): creating process SchedulerTest17-Child11
+SchedulerTest17: after spawn of child with pid 13
+SchedulerTest17: waiting for child process
+SchedulerTest17-Child11: started
+SchedulerTest17-Child11: joining 3
+SchedulerTest17-Child11: after joining child, pid 3, status = -858993460
+SchedulerTest17: exit status for child 13 is 5
+SchedulerTest17: waiting for child process
+SchedulerTest17: exit status for child 13 is 5
+SchedulerTest17: waiting for child process
+SchedulerTest17: exit status for child 13 is 5
+SchedulerTest17: waiting for child process
+SchedulerTest17: exit status for child 13 is 5
+SchedulerTest17: waiting for child process
+SchedulerTest17: exit status for child 13 is 5
+SchedulerTest17: waiting for child process
+SchedulerTest17: exit status for child 13 is 5
+SchedulerTest17: waiting for child process
+SchedulerTest17: exit status for child 13 is 5
+SchedulerTest17: waiting for child process
+SchedulerTest17: exit status for child 13 is 5
+SchedulerTest17: waiting for child process
+SchedulerTest17: exit status for child 13 is 5
+SchedulerTest17: waiting for child process
+SchedulerTest17: exit status for child 13 is 5
+SchedulerTest17: waiting for child process
+SchedulerTest17: exit status for child 13 is 5
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest18: started
+spawn(): creating process SchedulerTest18-Child1
+spawn(): Stack size is too small
+SchedulerTest18: after spawn of child with pid -2
+SchedulerTest18: TEST PASSED
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest19: started
+spawn(): creating process SchedulerTest19-Child1
+spawn(): creating process SchedulerTest19-Child2
+spawn(): creating process SchedulerTest19-Child3
+spawn(): creating process SchedulerTest19-Child4
+spawn(): creating process SchedulerTest19-Child5
+spawn(): creating process SchedulerTest19-Child6
+spawn(): creating process SchedulerTest19-Child7
+spawn(): creating process SchedulerTest19-Child8
+spawn(): creating process SchedulerTest19-Child9
+spawn(): creating process SchedulerTest19-Child10
+spawn(): creating process SchedulerTest19-Child11
+spawn(): creating process SchedulerTest19-Child12
+spawn(): creating process SchedulerTest19-Child13
+spawn(): creating process SchedulerTest19-Child14
+spawn(): creating process SchedulerTest19-Child15
+spawn(): creating process SchedulerTest19-Child16
+spawn(): creating process SchedulerTest19-Child17
+spawn(): creating process SchedulerTest19-Child18
+spawn(): creating process SchedulerTest19-Child19
+spawn(): creating process SchedulerTest19-Child20
+spawn(): creating process SchedulerTest19-Child21
+spawn(): creating process SchedulerTest19-Child22
+spawn(): creating process SchedulerTest19-Child23
+spawn(): creating process SchedulerTest19-Child24
+spawn(): creating process SchedulerTest19-Child25
+spawn(): creating process SchedulerTest19-Child26
+spawn(): creating process SchedulerTest19-Child27
+spawn(): creating process SchedulerTest19-Child28
+spawn(): creating process SchedulerTest19-Child29
+spawn(): creating process SchedulerTest19-Child30
+spawn(): creating process SchedulerTest19-Child31
+spawn(): creating process SchedulerTest19-Child32
+spawn(): creating process SchedulerTest19-Child33
+spawn(): creating process SchedulerTest19-Child34
+spawn(): creating process SchedulerTest19-Child35
+spawn(): creating process SchedulerTest19-Child36
+spawn(): creating process SchedulerTest19-Child37
+spawn(): creating process SchedulerTest19-Child38
+spawn(): creating process SchedulerTest19-Child39
+spawn(): creating process SchedulerTest19-Child40
+spawn(): creating process SchedulerTest19-Child41
+spawn(): creating process SchedulerTest19-Child42
+spawn(): creating process SchedulerTest19-Child43
+spawn(): creating process SchedulerTest19-Child44
+spawn(): creating process SchedulerTest19-Child45
+spawn(): creating process SchedulerTest19-Child46
+spawn(): creating process SchedulerTest19-Child47
+spawn(): creating process SchedulerTest19-Child48
+SchedulerTest19: k_spawn returned -1 at attempt 48
+spawn(): creating process SchedulerTest19-Child49
+SchedulerTest19: k_spawn returned -1 at attempt 49
+spawn(): creating process SchedulerTest19-Child50
+SchedulerTest19: k_spawn returned -1 at attempt 50
+spawn(): creating process SchedulerTest19-Child51
+SchedulerTest19: k_spawn returned -1 at attempt 51
+spawn(): creating process SchedulerTest19-Child52
+SchedulerTest19: k_spawn returned -1 at attempt 52
+SchedulerTest19: waiting for child process
+SchedulerTest19-Child47: started
+SchedulerTest19-Child47: quitting
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+SchedulerTest19: waiting for child process
+SchedulerTest19: exit status for child 49 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest20: started
+spawn(): creating process SchedulerTest20-Child1
+SchedulerTest20: after spawn of child with pid 3
+SchedulerTest20: waiting for child process
+SchedulerTest20-Child1: started
+SchedulerTest20-Child1: joining with pid 3 (should fail)
+SchedulerTest20-Child1: k_join returned 0
+SchedulerTest20: exit status for child 3 is -2
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest21: started
+spawn(): creating process SchedulerTest21-Child1
+spawn(): Priority out of range.
+SchedulerTest21: Could not spawn process, invalid priority
+spawn(): creating process SchedulerTest21-Child1
+spawn(): Priority out of range.
+SchedulerTest21: Could not spawn process, invalid priority
+SchedulerTest21: waiting for child process
+SchedulerTest21: exit status for child -4 is -1
+SchedulerTest21: waiting for child process
+SchedulerTest21: exit status for child -4 is -1
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest22: started
+spawn(): creating process SchedulerTest22-Child1
+SchedulerTest22: after spawn of child with pid 3
+SchedulerTest22: waiting for child process
+SchedulerTest22-Child1: started
+SchedulerTest22-Child1: performing spawn of child
+spawn(): creating process SchedulerTest22-Child1-Child1
+SchedulerTest22-Child1: after spawn of child with pid 4
+SchedulerTest22-Child1: performing spawn of child
+spawn(): creating process SchedulerTest22-Child1-Child2
+SchedulerTest22-Child1: after spawn of child with pid 5
+SchedulerTest22-Child1: performing spawn of child
+spawn(): creating process SchedulerTest22-Child1-Child3
+SchedulerTest22-Child1: after spawn of child with pid 6
+SchedulerTest22-Child1: Unblocking process 4
+SchedulerTest22-Child1: Unblocking process 5
+SchedulerTest22-Child1: Unblocking process 6
+SchedulerTest22-Child1: waiting for child process
+SchedulerTest22-Child1-Child3: started
+SchedulerTest22-Child1-Child3: quitting
+SchedulerTest22-Child1: exit status for child 6 is -3
+SchedulerTest22-Child1: waiting for child process
+SchedulerTest22-Child1: exit status for child 6 is -3
+SchedulerTest22-Child1: waiting for child process
+SchedulerTest22-Child1: exit status for child 6 is -3
+SchedulerTest22: exit status for child 6 is -2
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest23: started
+spawn(): creating process SchedulerTest23-Child1
+SchedulerTest23: after spawn of child with pid 3
+SchedulerTest23: joining child process
+SchedulerTest23-Child1: started
+SchedulerTest23-Child1: performing spawn of child
+spawn(): creating process SchedulerTest23-Child1-Child1
+SchedulerTest23-Child1: after spawn of child with pid 4
+SchedulerTest23-Child1: performing spawn of child
+spawn(): creating process SchedulerTest23-Child1-Child2
+SchedulerTest23-Child1: after spawn of child with pid 5
+SchedulerTest23-Child1: performing spawn of child
+spawn(): creating process SchedulerTest23-Child1-Child3
+SchedulerTest23-Child1: after spawn of child with pid 6
+SchedulerTest23-Child1: performing spawn of child
+spawn(): creating process SchedulerTest23-Child1-Child4
+SchedulerTest23-Child1: after spawn of child with pid 7
+SchedulerTest23-Child1: performing spawn of child
+spawn(): creating process SchedulerTest23-Child1-Child5
+SchedulerTest23-Child1: after spawn of child with pid 8
+SchedulerTest23-Child1: performing spawn of child
+spawn(): creating process SchedulerTest23-Child1-Child6
+SchedulerTest23-Child1: after spawn of child with pid 9
+SchedulerTest23-Child1: performing spawn of child
+spawn(): creating process SchedulerTest23-Child1-Child7
+SchedulerTest23-Child1: after spawn of child with pid 10
+SchedulerTest23-Child1: performing spawn of child
+spawn(): creating process SchedulerTest23-Child1-Child8
+SchedulerTest23-Child1: after spawn of child with pid 11
+SchedulerTest23-Child1: performing spawn of child
+spawn(): creating process SchedulerTest23-Child1-Child8
+SchedulerTest23-Child1: after spawn of child with pid 12
+SchedulerTest23-Child1: waiting for child process
+SchedulerTest23-Child1-Child8: started
+SchedulerTest23-Child1-Child8: Unblocking process 4
+SchedulerTest23-Child1-Child8: Unblocking process 5
+SchedulerTest23-Child1-Child8: Unblocking process 6
+SchedulerTest23-Child1-Child8: Unblocking process 7
+SchedulerTest23-Child1-Child8: Unblocking process 8
+SchedulerTest23-Child1-Child8: Unblocking process 9
+SchedulerTest23-Child1-Child8: Unblocking process 10
+SchedulerTest23-Child1-Child8: Unblocking process 11
+SchedulerTest23-Child1: exit status for child 12 is -2
+SchedulerTest23-Child1: waiting for child process
+SchedulerTest23-Child1: exit status for child 12 is -2
+SchedulerTest23-Child1: waiting for child process
+SchedulerTest23-Child1: exit status for child 12 is -2
+SchedulerTest23-Child1: waiting for child process
+SchedulerTest23-Child1: exit status for child 12 is -2
+SchedulerTest23-Child1: waiting for child process
+SchedulerTest23-Child1: exit status for child 12 is -2
+SchedulerTest23-Child1: waiting for child process
+SchedulerTest23-Child1: exit status for child 12 is -2
+SchedulerTest23-Child1: waiting for child process
+SchedulerTest23-Child1: exit status for child 12 is -2
+SchedulerTest23-Child1: waiting for child process
+SchedulerTest23-Child1: exit status for child 12 is -2
+SchedulerTest23-Child1: waiting for child process
+SchedulerTest23-Child1: exit status for child 12 is -2
+SchedulerTest23: exit status for child 12 is -2
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest24: started
+spawn(): creating process SchedulerTest24-Child1
+SchedulerTest24: after spawn of child with pid 3
+SchedulerTest24: joining child process
+SchedulerTest24-Child1: started
+SchedulerTest24-Child1: performing spawn of child
+spawn(): creating process SchedulerTest24-Child1-Child1
+SchedulerTest24-Child1: after spawn of child with pid 4
+SchedulerTest24-Child1: performing spawn of child
+spawn(): creating process SchedulerTest24-Child1-Child2
+SchedulerTest24-Child1: after spawn of child with pid 5
+SchedulerTest24-Child1: performing spawn of child
+spawn(): creating process SchedulerTest24-Child1-Child3
+SchedulerTest24-Child1: after spawn of child with pid 6
+SchedulerTest24-Child1: performing spawn of child
+spawn(): creating process SchedulerTest24-Child1-Child4
+SchedulerTest24-Child1: after spawn of child with pid 7
+SchedulerTest24-Child1: performing spawn of child
+spawn(): creating process SchedulerTest24-Child1-Child5
+SchedulerTest24-Child1: after spawn of child with pid 8
+SchedulerTest24-Child1: performing spawn of child
+spawn(): creating process SchedulerTest24-Child1-Child6
+SchedulerTest24-Child1: after spawn of child with pid 9
+SchedulerTest24-Child1: performing spawn of child
+spawn(): creating process SchedulerTest24-Child1-Child7
+SchedulerTest24-Child1: after spawn of child with pid 10
+SchedulerTest24-Child1: performing spawn of child
+spawn(): creating process SchedulerTest24-Child1-Child8
+SchedulerTest24-Child1: after spawn of child with pid 11
+SchedulerTest24-Child1: performing spawn of child
+spawn(): creating process SchedulerTest24-Child1-Child8
+SchedulerTest24-Child1: after spawn of child with pid 12
+SchedulerTest24-Child1: waiting for child process
+SchedulerTest24-Child1-Child8: started
+SchedulerTest24-Child1-Child8: Unblocking process 4
+SchedulerTest24-Child1-Child8: Unblocking process 5
+SchedulerTest24-Child1-Child8: Unblocking process 6
+SchedulerTest24-Child1-Child8: Unblocking process 7
+SchedulerTest24-Child1-Child8: Unblocking process 8
+SchedulerTest24-Child1-Child8: Unblocking process 9
+SchedulerTest24-Child1-Child8: Unblocking process 10
+SchedulerTest24-Child1-Child8: Unblocking process 11
+SchedulerTest24-Child1: exit status for child 12 is -2
+SchedulerTest24-Child1: waiting for child process
+SchedulerTest24-Child1: exit status for child 12 is -2
+SchedulerTest24-Child1: waiting for child process
+SchedulerTest24-Child1: exit status for child 12 is -2
+SchedulerTest24-Child1: waiting for child process
+SchedulerTest24-Child1: exit status for child 12 is -2
+SchedulerTest24-Child1: waiting for child process
+SchedulerTest24-Child1: exit status for child 12 is -2
+SchedulerTest24-Child1: waiting for child process
+SchedulerTest24-Child1: exit status for child 12 is -2
+SchedulerTest24-Child1: waiting for child process
+SchedulerTest24-Child1: exit status for child 12 is -2
+SchedulerTest24-Child1: waiting for child process
+SchedulerTest24-Child1: exit status for child 12 is -2
+SchedulerTest24-Child1: waiting for child process
+SchedulerTest24-Child1: exit status for child 12 is -2
+SchedulerTest24: exit status for child 12 is -2
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest25: started
+spawn(): creating process P1-Child1
+SchedulerTest25: after spawn of child with pid 3
+SchedulerTest25: joining child process
+P1-Child1: started
+P1-Child1: quitting
+SchedulerTest25: exit status for child 3 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest26: started
+spawn(): creating process SchedulerTest26-Child1
+SchedulerTest26: after spawn of child with pid 3
+spawn(): creating process SchedulerTest26-Child2
+SchedulerTest26: after spawn of child with pid 4
+SchedulerTest26: waiting for child process
+SchedulerTest26-Child2: started
+SchedulerTest26-Child2: joining target
+SchedulerTest26-Child2: k_join for pid 3 returned 0 with status 255
+SchedulerTest26: exit status for child 4 is -2
+SchedulerTest26: waiting for child process
+SchedulerTest26: exit status for child 4 is -2
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest27: started
+spawn(): creating process SchedulerTest27-Child1
+SchedulerTest27: after spawn of child with pid 3
+spawn(): creating process SchedulerTest27-Child2
+SchedulerTest27: after spawn of child with pid 4
+spawn(): creating process SchedulerTest27-Child3
+SchedulerTest27: after spawn of child with pid 5
+SchedulerTest27: waiting for child process
+SchedulerTest27-Child3: started
+SchedulerTest27-Child3: performing spawn of first child
+spawn(): creating process SchedulerTest27-Child3-Child1
+SchedulerTest27-Child3: spawn of first child returned pid = 6
+SchedulerTest27-Child3: performing spawn of second child
+spawn(): creating process SchedulerTest27-Child3-Child2
+SchedulerTest27-Child3: spawn of second child returned pid = 7
+SchedulerTest27-Child3: performing first wait
+SchedulerTest27-Child3-Child2: started
+SchedulerTest27-Child3-Child2: quitting
+SchedulerTest27-Child3: exit status for child 7 is -3
+SchedulerTest27-Child3: performing second wait
+SchedulerTest27-Child3: exit status for child 7 is -3
+SchedulerTest27: exit status for child 7 is -3
+SchedulerTest27: waiting for child process
+SchedulerTest27: exit status for child 7 is -3
+SchedulerTest27: waiting for child process
+SchedulerTest27: exit status for child 7 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest28: started
+spawn(): creating process SchedulerTest28-Child1
+SchedulerTest28: after spawn of child with pid 3
+spawn(): creating process SchedulerTest28-Child2
+SchedulerTest28: after spawn of child with pid 4
+spawn(): creating process SchedulerTest28-Child3
+SchedulerTest28: after spawn of child with pid 5
+SchedulerTest28: waiting for child process
+SchedulerTest28-Child3: started
+SchedulerTest28-Child3: performing spawn of child
+spawn(): creating process SchedulerTest28-Child3-Child1
+SchedulerTest28-Child3: spawn of child returned pid = 6
+SchedulerTest28-Child3-Child1: started
+SchedulerTest28-Child3-Child1: quitting
+SchedulerTest28-Child3-Child1: exit status for child 6 is -3
+SchedulerTest28: exit status for child 6 is -3
+SchedulerTest28: waiting for child process
+SchedulerTest28: exit status for child 6 is -3
+SchedulerTest28: waiting for child process
+SchedulerTest28: exit status for child 6 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest29: started
+spawn(): creating process SchedulerTest29-Child1
+SchedulerTest29: after spawn of child with pid 3
+spawn(): creating process SchedulerTest29-Child2
+SchedulerTest29: after spawn of child with pid 4
+spawn(): creating process SchedulerTest29-Child3
+SchedulerTest29: after spawn of child with pid 5
+spawn(): creating process SchedulerTest29-Child4
+SchedulerTest29: after spawn of child with pid 6
+spawn(): creating process SchedulerTest29-Child5
+SchedulerTest29: after spawn of child with pid 7
+SchedulerTest29-Child5: started
+SchedulerTest29-Child5: started, child number is 5
+SchedulerTest29-Child5: exiting, pid = 7
+SchedulerTest29: exit status for child 7 is -7
+SchedulerTest29: exit status for child 7 is -7
+SchedulerTest29: exit status for child 7 is -7
+SchedulerTest29: exit status for child 7 is -7
+spawn(): creating process SchedulerTest29-Child6
+SchedulerTest29: after spawn of child with pid 8
+spawn(): creating process SchedulerTest29-Child7
+SchedulerTest29: after spawn of child with pid 9
+spawn(): creating process SchedulerTest29-Child8
+SchedulerTest29: after spawn of child with pid 10
+spawn(): creating process SchedulerTest29-Child9
+SchedulerTest29: after spawn of child with pid 11
+SchedulerTest29: exit status for child 11 is -7
+SchedulerTest29: exit status for child 11 is -7
+SchedulerTest29: exit status for child 11 is -7
+SchedulerTest29: exit status for child 11 is -7
+spawn(): creating process SchedulerTest29-Child10
+SchedulerTest29: after spawn of child with pid 12
+spawn(): creating process SchedulerTest29-Child11
+SchedulerTest29: after spawn of child with pid 13
+spawn(): creating process SchedulerTest29-Child12
+SchedulerTest29: after spawn of child with pid 14
+spawn(): creating process SchedulerTest29-Child13
+SchedulerTest29: after spawn of child with pid 15
+SchedulerTest29: exit status for child 15 is -7
+SchedulerTest29: exit status for child 15 is -7
+SchedulerTest29: exit status for child 15 is -7
+SchedulerTest29: exit status for child 15 is -7
+SchedulerTest29: exit status for child 15 is -7
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest30: started
+SchedulerTest30: performing spawn of child
+spawn(): creating process SchedulerTest30-Child1
+SchedulerTest30: after spawn of child with pid 3
+SchedulerTest30: performing spawn of child
+spawn(): creating process SchedulerTest30-Child2
+SchedulerTest30: after spawn of child with pid 4
+SchedulerTest30: performing spawn of child
+spawn(): creating process SchedulerTest30-Child3
+SchedulerTest30: after spawn of child with pid 5
+SchedulerTest30: waiting for child process
+SchedulerTest30-Child3: started
+SchedulerTest30-Child3: calling readTime
+SchedulerTest30-Child3: readTime returned 0
+SchedulerTest30-Child3: quitting
+SchedulerTest30: exit status for child 5 is -3
+SchedulerTest30: waiting for child process
+SchedulerTest30: exit status for child 5 is -3
+SchedulerTest30: waiting for child process
+SchedulerTest30: exit status for child 5 is -3
+All processes completed.
+spawn(): creating process watchdog
+spawn(): creating process Scheduler
+
+SchedulerTest31: started
+SchedulerTest31: blocking with a value of 6
+All processes completed.
